@@ -1,0 +1,431 @@
+
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background: linear-gradient(45deg,#0a0a0a,#3a4452);
+        }
+        .container{
+            border: 2px solid white;
+            box-shadow: -10px -10px;
+            padding: 40px 40px;
+            transition: 1s;
+        }
+        .container:hover{
+            box-shadow: 4px 4px 5px grey,
+            5px 5px 6px grey,
+            6px 6px 7px grey;
+        }
+        .stopwatch{
+            text-align: center;
+            padding: 20px;
+            background-color: black;
+            border-radius: 19px;
+            box-shadow: 3px 3px 5px grey;
+            transition: 1s;
+        }
+        .stopwatch:hover{
+            letter-spacing: 2px;
+            box-shadow:0px 0px 10px grey,
+            0px 0px 20px grey;
+        }
+        .display{
+            font-size: 50px;
+            font-weight: 600;
+            color: white;
+        }
+        .buttons{
+            margin-top: 20px;
+        }
+        .btn{
+            font-size: 25px;
+            font-weight: 600;
+            padding: 12px 24px;
+            margin: 0px 10px;
+            cursor: pointer;
+            border: 2px solid cadetblue;
+            border-radius: 19px;
+            color: white;
+            box-shadow: 0 0 5px cadetblue;
+            transition: 1s;
+        }
+        .btn:hover{
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px cadetblue;
+        }
+        #startBtn{
+            background: green;
+        }
+        #startBtn:hover{
+            background: rgba(0,81,0,0.74);
+        }
+        #stopBtn{
+            background: #fa0024;
+        }
+        #stopBtn:hover{
+            background: #fa0025d5;
+        }
+        #resetBtn{
+            background: #121212;
+        }
+        #resetBtn:hover{
+            background: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stopwatch">
+            <div class="display">00 : 00 : 00</div>
+            </div>
+            <div class="buttons">
+            <button class="btn" id="startBtn">Start</button>
+             <button  class="btn" id="stopBtn">Stop</button>
+            <button class="btn" id="resetBtn">Reset</button>
+        </div>
+    </div>
+    <script src="CLOCKTIMER.js"></script>
+</body>
+</html>
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        *{margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background: linear-gradient(45deg,#0a0a0a,#3a4452);
+        }
+        .container{
+            height: 45vh;
+            width: 45%;
+            border-radius: 8px;
+            background: #ecf0f3;
+            box-shadow: 12px 12px 10px cadetblue,
+                       -12px -12px 10px aquamarine;
+        }
+        .display{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .display #screen{
+            width: 90%;
+            height: 70px;
+            font-size: 30px;
+            border: none;
+            text-align: right;
+            background: #ecf0f3;
+            border-radius: 6px;
+            padding-right: 20px;
+            transition: 1s;
+            box-shadow: inset 8px 8px 8px grey,
+                        inset -8px -8px 8px grey;
+        }
+        .display #screen:hover{
+            box-shadow: inset 8px 8px 8px grey,
+                        inset -8px -8px 8px #3a4452;
+        }
+        .btns{
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        .btns .row button{
+            font-size: 18px;
+            margin: 5px;
+            height: 30px;
+            width: 80px;
+            border-radius: 5px;
+            border: none;
+            transition: 1s;
+            box-shadow: 5px 5px 8px #000020,
+                        -5px -5px 8px #ffffff;
+        }
+        .btns .row button:hover{
+            box-shadow: inset 5px 5px 8px rgba(16,16,16,0.1),
+                        inset -5px -5px 8px grey;
+                        background: #fff;
+        }
+        #eval{
+            background: #33ccff;
+            color: #fff;
+            box-shadow: inset 5px 5px 8px #66d9ff,
+                        inset -5px -5px 8px #00ace6;
+        }
+        #eval:hover{
+           box-shadow: inset 5px 5px #00ace6,
+                       inset -5px -5px 8px #00ace6;
+        }
+        #ac{
+            background: #33cc33;
+            color: #fff;
+        }
+        #ac:hover{
+            box-shadow: inset 5px 5px #2eb82e,
+                       inset -5px -5px 8px #33cc33;
+        }
+        #ce{
+            background: #ff3399;
+            color: #fff;
+        }
+        #ce:hover{
+            box-shadow: inset 5px 5px #e60073,
+                       inset -5px -5px 8px #ff3399;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+          <input id="screen" type="text" placeholder="0">
+        </div>
+        <div class="btns">
+            <div class="row">
+                <button id="ce" onclick="backspc()">CE</button>
+                <button onclick="fact()">x!</button>
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                 <button class="btn">%</button>     
+                <button  id="ac" onclick="screen.value=''">AC</button>                
+            </div>
+            <div class="row">
+                <button onclick="sin()">sin</button>
+                <button onclick="pi()">pi</button>
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">/</button>           
+            </div>
+            <div class="row">
+                <button onclick="cos()">cos</button>
+                <button onclick="log()">log</button>
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                 <button class="btn">6</button>
+                <button class="btn">*</button>                
+            </div>
+            <div class="row">
+                <button onclick="tan()">tan</button>
+                <button onclick="sqrt()">root</button>
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                 <button class="btn">3</button>  
+                <button class="btn">-</button>           
+            </div>
+            <div class="row">
+                <button onclick="e()">e</button>
+                <button onclick="pow()">x <span style="position: relative; bottom: .4em ; right: .1em;" >y</span></button>
+                <button class="btn">0</button>
+                <button class="btn">.</button>
+                 <button id="eval" onclick="screen.value=eval(screen.value)">=</button>     
+                <button class="btn">+</button>                
+          </div>
+        </div>
+    </div>
+</body>
+<script>
+    var screen=document.querySelector('#screen');
+    var btn=document.querySelectorAll('.btn');
+
+    for(item of btn)
+    {
+        item.addEventListener('click',(e)=>{
+            btntext=e.target.innerText;
+            if(btntext=='x')
+            {
+                btntext='*';
+            }
+            if(btntext=='/')
+            {
+                btntext='/';
+            }
+            screen.value+=btntext;
+        });
+    }
+    function sin(){
+        screen.value=Math.sin(screen.value);
+    }
+    function cos(){
+        screen.value=Math.cos(screen.value);
+    }
+    function tan(){
+        screen.value=Math.tan(screen.value);
+    }
+    function pow(){
+        screen.value=Math.pow(screen.value,2);
+    }
+    function sqrt(){
+        screen.value=Math.sqrt(screen.value,2);
+    }
+    function log(){
+        screen.value=Math.log(screen.value);
+    }
+    function pi(){
+        screen.value=3.141592653;
+    }
+    function e(){
+        screen.value=2.71828182846;
+    }
+    function fact(){
+       var i,num,f=1;
+       num=screen.value;
+       for(i=1;i<=num;i++){
+        f=f*i;
+       }
+       i=i-1;
+       screen.value=f;
+    }
+    function backspc(){
+        screen.value=screen.value.substr(0,screen.value.length-1);
+    }
+</script>
+</html> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            font-size: 25px;
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background: linear-gradient(45deg,#0a0a0a,#3a4452);
+        }
+        .calculator{
+            border: 1px solid aquamarine;
+            border-radius: 16px;
+            background: transparent;
+            padding: 10px;
+            box-shadow: 0px 0px 5px aquamarine,
+            0px 0px 20px aquamarine,
+            0px 0px 15px aquamarine;
+        }
+        input{
+            width: 90%;
+            border: none;
+            background: transparent;
+            padding: 24px;
+            margin: 10px;
+            font-size: 30px;
+            text-align: right;
+            transition: 1s;
+            color: #ffffff;
+        }
+        input::placeholder{
+            color: #ffffff;
+        }
+        input:hover{
+            border-radius: 10px;
+            box-shadow: 0 0 10px cadetblue;
+            width: 100%;
+        }
+        button{
+            border: none;
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            border-radius: 50%;
+            background: transparent;
+            color: #ffffff;
+            font-size: 25px;
+            box-shadow: -3px -3px 3px cadetblue;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        .operator{
+            color: #6dee0a;
+        }
+        .equalBtn{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" placeholder="0" id="inputBox">
+        <div>
+            <button class="operator">AC</button>
+            <button class="operator">DEL</button>
+            <button class="operator">%</button>
+            <button class="operator">/</button>
+        </div>
+        <div>
+            <button>7</button>
+            <button>8</button>
+            <button >9</button>
+            <button class="operator">*</button>
+        </div>
+        <div>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="operator">-</button>
+        </div>
+        <div>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="operator">+</button>
+        </div>
+        <div>
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equalBtn" >=</button>
+        </div>
+    </div>
+   <script src="calculator.js"></script>
+</body>
+</html> -->
